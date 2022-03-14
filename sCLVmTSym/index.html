@@ -8,7 +8,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-<link rel="shortcut icon" href="https://Angie-DA.github.io/favicon.ico?v=1647173395022">
+<link rel="shortcut icon" href="https://Angie-DA.github.io/favicon.ico?v=1647240291713">
 <link rel="stylesheet" href="https://Angie-DA.github.io/styles/main.css">
 
 
@@ -18,11 +18,11 @@
 
 
 
-    <meta name="description" content="这是内容
-
-print('hello world')
-
-..." />
+    <meta name="description" content="项目背景
+以淘宝app平台为数据集，通过行业的指标对淘宝用户行为进行分析，从而探索淘宝用户的行为模式，具体指标包括：日PV和日UV分析，付费率分析，复购行为分析，漏斗流失分析和用户价值RFM分析。
+数据介绍
+列名称	        说明
+用..." />
     <meta name="keywords" content="" />
   </head>
   <body>
@@ -32,7 +32,7 @@ print('hello world')
   <div class="top-container" data-aos="fade-right">
     <div class="top-header-container">
       <a class="site-title-container" href="https://Angie-DA.github.io">
-        <img src="https://Angie-DA.github.io/images/avatar.png?v=1647173395022" class="site-logo">
+        <img src="https://Angie-DA.github.io/images/avatar.png?v=1647240291713" class="site-logo">
         <h1 class="site-title">王安琪的数据分析项目</h1>
       </a>
       <div class="menu-btn" @click="menuVisible = !menuVisible">
@@ -92,10 +92,57 @@ print('hello world')
             <div class="post-date">2022-03-13</div>
             
             <div class="post-content" v-pre>
-              <p>这是内容<br>
-<img src="https://Angie-DA.github.io/post-images/1647170533999.jpg" alt="" loading="lazy"></p>
-<pre><code>print('hello world')
+              <h3 id="项目背景">项目背景</h3>
+<p>以淘宝app平台为数据集，通过行业的指标对淘宝用户行为进行分析，从而探索淘宝用户的行为模式，具体指标包括：日PV和日UV分析，付费率分析，复购行为分析，漏斗流失分析和用户价值RFM分析。</p>
+<h3 id="数据介绍">数据介绍</h3>
+<p>列名称	        说明<br>
+用户ID      	整数类型，序列化后的用户ID<br>
+商品ID      	整数类型，序列化后的商品ID<br>
+商品类目ID   整数类型，序列化后的商品所属类目ID<br>
+行为类型       字符串，枚举类型，包括('pv', 'buy', 'cart', 'fav')<br>
+时间戳	        行为发生的时间戳</p>
+<!-- more -->
+<p>行为类型	   说明<br>
+pv	               商品详情页pv，等价于点击<br>
+buy	              商品购买<br>
+cart	           将商品加入购物车<br>
+fav	               收藏商品</p>
+<h3 id="分析目标">分析目标</h3>
+<p>1.用户行为分析/用户分类/漏斗分析；<br>
+2.用户流失分析/用户复购分析</p>
+<h3 id="1-数据读取">1  数据读取</h3>
+<pre><code>import numpy as np
+import pandas as pd
+import matplotlib.pyplot as plt
+import seaborn as sns
+import json
+
+from pyecharts.globals import CurrentConfig, NotebookType
+from pyecharts import options as opts
+from pyecharts.charts import Line
+
+from pyecharts.charts import *
+from pyecharts.globals import ThemeType
+from pyecharts.charts import Bar
+from pyecharts.charts import Funnel
 </code></pre>
+<pre><code># 数据量过大超过1000w，分析时截取前100w行
+columns=[&quot;userid&quot;, 'itemid', 'categoryid', 'type', 'timestamp']
+data = pd.read_csv('E:/UserBehavior.csv',
+                   engine='python',
+                   encoding='utf-8',
+                   names=columns,
+                   chunksize=1000000,
+                   iterator=True)
+
+plt.rcParams['font.sans-serif'] = 'SimHei'
+</code></pre>
+<pre><code>dataframe = data.get_chunk(1000000)
+</code></pre>
+<h3 id="11-查看数据的基本信息">1.1  查看数据的基本信息</h3>
+<pre><code>dataframe.info()
+</code></pre>
+<figure data-type="image" tabindex="1"><img src="https://Angie-DA.github.io/post-images/1647240237620.png" alt="" loading="lazy"></figure>
 
             </div>
             
