@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://Angie-DA.github.io</id>
     <title>王安琪的数据分析项目</title>
-    <updated>2022-03-14T06:46:20.532Z</updated>
+    <updated>2022-03-14T12:45:19.643Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://Angie-DA.github.io"/>
     <link rel="self" href="https://Angie-DA.github.io/atom.xml"/>
@@ -16,25 +16,5 @@
         <link href="https://Angie-DA.github.io/sCLVmTSym/">
         </link>
         <updated>2022-03-13T11:21:55.000Z</updated>
-        <summary type="html"><![CDATA[<h3 id="项目背景">项目背景</h3>
-<p>以淘宝app平台为数据集，通过行业的指标对淘宝用户行为进行分析，从而探索淘宝用户的行为模式，具体指标包括：日PV和日UV分析，付费率分析，复购行为分析，漏斗流失分析和用户价值RFM分析。</p>
-<h3 id="数据介绍">数据介绍</h3>
-<p>列名称	        说明<br>
-用户ID      	整数类型，序列化后的用户ID<br>
-商品ID      	整数类型，序列化后的商品ID<br>
-商品类目ID   整数类型，序列化后的商品所属类目ID<br>
-行为类型       字符串，枚举类型，包括('pv', 'buy', 'cart', 'fav')<br>
-时间戳	        行为发生的时间戳</p>
-]]></summary>
-        <content type="html"><![CDATA[<h3 id="项目背景">项目背景</h3>
-<p>以淘宝app平台为数据集，通过行业的指标对淘宝用户行为进行分析，从而探索淘宝用户的行为模式，具体指标包括：日PV和日UV分析，付费率分析，复购行为分析，漏斗流失分析和用户价值RFM分析。</p>
-<h3 id="数据介绍">数据介绍</h3>
-<p>列名称	        说明<br>
-用户ID      	整数类型，序列化后的用户ID<br>
-商品ID      	整数类型，序列化后的商品ID<br>
-商品类目ID   整数类型，序列化后的商品所属类目ID<br>
-行为类型       字符串，枚举类型，包括('pv', 'buy', 'cart', 'fav')<br>
-时间戳	        行为发生的时间戳</p>
-]]></content>
     </entry>
 </feed>
