@@ -1,20 +1,13 @@
-<!DOCTYPE html>
 <html>
   <head>
-    <meta charset="utf-8" >
-
+    <meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Python基于淘宝用户行为分析 | 王安琪的数据分析项目</title>
-
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-
-<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-<link rel="shortcut icon" href="https://Angie-DA.github.io/favicon.ico?v=1647261913504">
+<link rel="shortcut icon" href="https://Angie-DA.github.io/favicon.ico?v=1647304297808">
+<link href="https://cdn.jsdelivr.net/npm/remixicon@2.3.0/fonts/remixicon.css" rel="stylesheet">
 <link rel="stylesheet" href="https://Angie-DA.github.io/styles/main.css">
-
-
-
-<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
-<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<link rel="alternate" type="application/atom+xml" title="Python基于淘宝用户行为分析 | 王安琪的数据分析项目 - Atom Feed" href="https://Angie-DA.github.io/atom.xml">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700">
 
 
 
@@ -24,75 +17,83 @@
 列名称	        说明
 用..." />
     <meta name="keywords" content="" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+    <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
   </head>
   <body>
-    <div id="app" class="main">
-
-      <div class="sidebar" :class="{ 'full-height': menuVisible }">
-  <div class="top-container" data-aos="fade-right">
-    <div class="top-header-container">
-      <a class="site-title-container" href="https://Angie-DA.github.io">
-        <img src="https://Angie-DA.github.io/images/avatar.png?v=1647261913504" class="site-logo">
-        <h1 class="site-title">王安琪的数据分析项目</h1>
-      </a>
-      <div class="menu-btn" @click="menuVisible = !menuVisible">
-        <div class="line"></div>
-      </div>
-    </div>
-    <div>
+    <div class="main">
+      <div class="main-content">
+        <div class="site-header">
+  <a href="https://Angie-DA.github.io">
+  <img class="avatar" src="https://Angie-DA.github.io/images/avatar.png?v=1647304297808" alt="">
+  </a>
+  <h1 class="site-title">
+    王安琪的数据分析项目
+  </h1>
+  <p class="site-description">
+    初级DA，请多多指教😆😆
+  </p>
+  <div class="menu-container">
+    
       
-        
-          <a href="https://Angie-DA.github.io" class="site-nav">
-            主页
-          </a>
-        
+        <a href="https://Angie-DA.github.io" class="menu">
+          主页
+        </a>
       
-        
-          <a href="https://Angie-DA.github.io/archives" class="site-nav">
-            文章
-          </a>
-        
+    
       
-        
-          <a href="https://Angie-DA.github.io/tags" class="site-nav">
-            标签
-          </a>
-        
+        <a href="https://Angie-DA.github.io/archives" class="menu">
+          文章
+        </a>
       
-    </div>
+    
+      
+        <a href="https://Angie-DA.github.io/tags" class="menu">
+          标签
+        </a>
+      
+    
   </div>
-  <div class="bottom-container" data-aos="flip-up" data-aos-offset="0">
-    <div class="social-container">
+  <div class="social-container">
+    
       
-        
+        <a href="https://github.com/xuyj1111" target="_blank">
+          <i class="ri-github-line"></i>
+        </a>
       
-        
+    
       
-        
+    
       
-        
+    
       
-        
+    
       
-    </div>
-    <div class="site-description">
-      初级DA，请多多指教😆😆
-    </div>
-    <div class="site-footer">
-       | <a class="rss" href="https://Angie-DA.github.io/atom.xml" target="_blank">RSS</a>
-    </div>
+    
   </div>
+  <form id="gridea-search-form" action="https://Angie-DA.github.io/search/">
+    <input name="q" />
+  </form>
 </div>
 
-
-      <div class="main-container">
-        <div class="content-container" data-aos="fade-up">
-          <div class="post-detail">
-            <h2 class="post-title">Python基于淘宝用户行为分析</h2>
-            <div class="post-date">2022-03-13</div>
+        <div class="post-detail">
+          <article class="post">
+            <h2 class="post-title">
+              Python基于淘宝用户行为分析
+            </h2>
+            <div class="post-info">
+              <span>
+                2022-03-13
+              </span>
+              <span>
+                15 min read
+              </span>
+              
+            </div>
             
-            <div class="post-content" v-pre>
-              <h3 id="项目背景">项目背景</h3>
+            <div class="post-content-wrapper">
+              <div class="post-content">
+                <h3 id="项目背景">项目背景</h3>
 <p>以淘宝app平台为数据集，通过行业的指标对淘宝用户行为进行分析，从而探索淘宝用户的行为模式，具体指标包括：日PV和日UV分析，付费率分析，复购行为分析，漏斗流失分析和用户价值RFM分析。</p>
 <h3 id="数据介绍">数据介绍</h3>
 <p>列名称	        说明<br>
@@ -527,36 +528,110 @@ RF.user_classification.value_counts(1)
 <p><img src="https://Angie-DA.github.io/post-images/1647261783312.jpg" alt="" loading="lazy"><br>
 个人思考：根据RFM模型对用户分类后发现重要挽留客户比例最高，其次是重要价值用户，淘宝仅需要适当营销并推出一系列的活动就能稳固部分重要挽留客户，同时，需要提高社群管理的效率，将重要保持客户和重要发展客户转变为重要价值客户，可采取定期发送文案、赠送优惠券等方式。</p>
 
+              </div>
+              <div class="toc-container">
+                <ul class="markdownIt-TOC">
+<li>
+<ul>
+<li>
+<ul>
+<li><a href="#%E9%A1%B9%E7%9B%AE%E8%83%8C%E6%99%AF">项目背景</a></li>
+<li><a href="#%E6%95%B0%E6%8D%AE%E4%BB%8B%E7%BB%8D">数据介绍</a></li>
+<li><a href="#%E5%88%86%E6%9E%90%E7%9B%AE%E6%A0%87">分析目标</a></li>
+<li><a href="#1-%E6%95%B0%E6%8D%AE%E8%AF%BB%E5%8F%96">1  数据读取</a>
+<ul>
+<li><a href="#11-%E6%9F%A5%E7%9C%8B%E6%95%B0%E6%8D%AE%E7%9A%84%E5%9F%BA%E6%9C%AC%E4%BF%A1%E6%81%AF">1.1  查看数据的基本信息</a></li>
+</ul>
+</li>
+<li><a href="#2-%E6%95%B0%E6%8D%AE%E6%B8%85%E6%B4%97">2  数据清洗</a>
+<ul>
+<li><a href="#21-%E6%9F%A5%E7%9C%8B%E6%95%B0%E6%8D%AE%E6%B2%A1%E6%9C%89%E7%A9%BA%E5%80%BC%E7%9A%84%E6%95%B0%E6%8D%AE%E7%9A%84%E4%B8%AA%E6%95%B0">2.1  查看数据没有空值的数据的个数</a></li>
+<li><a href="#22-%E6%9F%A5%E7%9C%8B%E6%95%B0%E6%8D%AE%E7%9A%84%E5%89%8Dn%E6%9D%A1">2.2  查看数据的前n条</a></li>
+<li><a href="#23-%E8%BD%AC%E6%8D%A2%E7%B1%BB%E5%9E%8B-%E6%88%AA%E5%8F%96%E6%95%B0%E6%8D%AE-%E9%87%8D%E6%96%B0%E6%8E%92%E5%88%97">2.3  转换类型、截取数据、重新排列</a></li>
+<li><a href="#24-%E6%95%B0%E6%8D%AE%E6%B8%85%E6%B4%97%E7%BB%93%E6%9E%9C">2.4  数据清洗结果</a></li>
+</ul>
+</li>
+<li><a href="#3-%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90">3  数据分析</a>
+<ul>
+<li><a href="#31-%E8%BE%93%E5%87%BA%E5%BD%93%E5%89%8D%E6%95%B0%E6%8D%AE%E5%90%84%E6%A0%8F%E7%9B%AE%E8%AE%A1%E6%95%B0">3.1  输出当前数据各栏目计数</a></li>
+<li><a href="#32-%E7%94%A8%E6%88%B7%E5%A4%8D%E8%B4%AD%E7%8E%87">3.2  用户复购率</a></li>
+<li><a href="#33-%E5%8F%AF%E8%A7%86%E5%8C%96%E5%9B%BE%E8%A1%A8">3.3  可视化图表</a>
+<ul>
+<li><a href="#331-%E9%A5%BC%E5%9B%BE-%E7%94%A8%E6%88%B7%E8%A1%8C%E4%B8%BA%E5%8D%A0%E6%AF%94">3.3.1  饼图-用户行为占比</a></li>
+<li><a href="#332-%E5%8A%A8%E6%80%81%E6%9B%B2%E7%BA%BF-%E6%AF%8F%E6%97%A5pv-uv">3.3.2  动态曲线-每日pv、uv</a></li>
+</ul>
+</li>
+<li><a href="#333-%E6%BC%8F%E6%96%97%E5%9B%BE-%E7%94%A8%E6%88%B7%E8%A1%8C%E4%B8%BA">3.3.3  漏斗图-用户行为</a></li>
+<li><a href="#334-%E6%9F%B1%E7%8A%B6%E5%9B%BE-%E7%94%A8%E6%88%B7%E5%A4%8D%E8%B4%AD%E7%8E%87">3.3.4  柱状图-用户复购率</a></li>
+<li><a href="#335-%E5%8A%A8%E6%80%81%E6%9F%B1%E7%8A%B6-%E7%94%A8%E6%88%B7%E9%87%8F%E5%8F%98%E5%8C%96%E8%B6%8B%E5%8A%BF">3.3.5  动态柱状-用户量变化趋势</a></li>
+<li><a href="#336-%E7%94%A8%E6%88%B7%E4%BB%B7%E5%80%BC%E5%88%86%E6%9E%90rfm%E5%88%86%E6%9E%90recencyfrequencymonetary">3.3.6  用户价值分析——RFM分析（Recency，Frequency，Monetary）¶</a></li>
+</ul>
+</li>
+<li><a href="#%E7%BB%9F%E8%AE%A1%E7%94%A8%E6%88%B7%E5%88%86%E7%B1%BB%E6%83%85%E5%86%B5">统计用户分类情况</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+              </div>
             </div>
-            
-            
-
-            
-
-          </div>
-
+          </article>
         </div>
+
+        
+
+        
+
+        <div class="site-footer">
+  
+  <a class="rss" href="https://Angie-DA.github.io/atom.xml" target="_blank">
+    <i class="ri-rss-line"></i> RSS
+  </a>
+</div>
+
       </div>
     </div>
 
-    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
-<script type="application/javascript">
+    <script>
+      hljs.initHighlightingOnLoad()
 
-AOS.init();
+      let mainNavLinks = document.querySelectorAll(".markdownIt-TOC a");
 
-var app = new Vue({
-  el: '#app',
-  data: {
-    menuVisible: false,
-  },
-})
+      // This should probably be throttled.
+      // Especially because it triggers during smooth scrolling.
+      // https://lodash.com/docs/4.17.10#throttle
+      // You could do like...
+      // window.addEventListener("scroll", () => {
+      //    _.throttle(doThatStuff, 100);
+      // });
+      // Only not doing it here to keep this Pen dependency-free.
 
-</script>
+      window.addEventListener("scroll", event => {
+        let fromTop = window.scrollY;
 
+        mainNavLinks.forEach((link, index) => {
+          let section = document.getElementById(decodeURI(link.hash).substring(1));
+          let nextSection = null
+          if (mainNavLinks[index + 1]) {
+            nextSection = document.getElementById(decodeURI(mainNavLinks[index + 1].hash).substring(1));
+          }
+          if (section.offsetTop <= fromTop) {
+            if (nextSection) {
+              if (nextSection.offsetTop > fromTop) {
+                link.classList.add("current");
+              } else {
+                link.classList.remove("current");    
+              }
+            } else {
+              link.classList.add("current");
+            }
+          } else {
+            link.classList.remove("current");
+          }
+        });
+      });
 
-
-
-
-
+    </script>
   </body>
 </html>
