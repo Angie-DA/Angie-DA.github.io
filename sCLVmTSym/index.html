@@ -3,7 +3,7 @@
     <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Python基于淘宝用户行为分析 | 王安琪的数据分析项目</title>
-<link rel="shortcut icon" href="https://Angie-DA.github.io/favicon.ico?v=1647304297808">
+<link rel="shortcut icon" href="https://Angie-DA.github.io/favicon.ico?v=1647304829692">
 <link href="https://cdn.jsdelivr.net/npm/remixicon@2.3.0/fonts/remixicon.css" rel="stylesheet">
 <link rel="stylesheet" href="https://Angie-DA.github.io/styles/main.css">
 <link rel="alternate" type="application/atom+xml" title="Python基于淘宝用户行为分析 | 王安琪的数据分析项目 - Atom Feed" href="https://Angie-DA.github.io/atom.xml">
@@ -25,7 +25,7 @@
       <div class="main-content">
         <div class="site-header">
   <a href="https://Angie-DA.github.io">
-  <img class="avatar" src="https://Angie-DA.github.io/images/avatar.png?v=1647304297808" alt="">
+  <img class="avatar" src="https://Angie-DA.github.io/images/avatar.png?v=1647304829692" alt="">
   </a>
   <h1 class="site-title">
     王安琪的数据分析项目
@@ -111,7 +111,7 @@ fav	               收藏商品</p>
 <p>1.用户行为分析/用户分类/漏斗分析；<br>
 2.用户流失分析/用户复购分析</p>
 <h3 id="1-数据读取">1  数据读取</h3>
-<pre><code>import numpy as np
+<pre><code class="language-python">import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
@@ -126,7 +126,7 @@ from pyecharts.globals import ThemeType
 from pyecharts.charts import Bar
 from pyecharts.charts import Funnel
 </code></pre>
-<pre><code># 数据量过大超过1000w，分析时截取前100w行
+<pre><code class="language-python"># 数据量过大超过1000w，分析时截取前100w行
 columns=[&quot;userid&quot;, 'itemid', 'categoryid', 'type', 'timestamp']
 data = pd.read_csv('E:/UserBehavior.csv',
                    engine='python',
@@ -137,26 +137,26 @@ data = pd.read_csv('E:/UserBehavior.csv',
 
 plt.rcParams['font.sans-serif'] = 'SimHei'
 </code></pre>
-<pre><code>dataframe = data.get_chunk(1000000)
+<pre><code class="language-python">dataframe = data.get_chunk(1000000)
 </code></pre>
 <h4 id="11-查看数据的基本信息">1.1  查看数据的基本信息</h4>
-<pre><code>dataframe.info()
+<pre><code class="language-python">dataframe.info()
 </code></pre>
 <figure data-type="image" tabindex="1"><img src="https://Angie-DA.github.io/post-images/1647240237620.png" alt="" loading="lazy"></figure>
 <h3 id="2-数据清洗">2  数据清洗</h3>
-<pre><code>dataframe.isnull().sum()
+<pre><code class="language-python">dataframe.isnull().sum()
 </code></pre>
 <figure data-type="image" tabindex="2"><img src="https://Angie-DA.github.io/post-images/1647258510066.png" alt="" loading="lazy"></figure>
 <h4 id="21-查看数据没有空值的数据的个数">2.1  查看数据没有空值的数据的个数</h4>
-<pre><code>dataframe.nunique()
+<pre><code class="language-python">dataframe.nunique()
 </code></pre>
 <figure data-type="image" tabindex="3"><img src="https://Angie-DA.github.io/post-images/1647258621523.jpg" alt="" loading="lazy"></figure>
 <h4 id="22-查看数据的前n条">2.2  查看数据的前n条</h4>
-<pre><code>dataframe.head(n=11)
+<pre><code class="language-python">dataframe.head(n=11)
 </code></pre>
 <figure data-type="image" tabindex="4"><img src="https://Angie-DA.github.io/post-images/1647258870238.png" alt="" loading="lazy"></figure>
 <h4 id="23-转换类型-截取数据-重新排列">2.3  转换类型、截取数据、重新排列</h4>
-<pre><code># 删除重复值，结果一样数据无重复有效数据
+<pre><code class="language-python"># 删除重复值，结果一样数据无重复有效数据
 dataframe.drop_duplicates(subset=['userid','itemid','type','timestamp'],keep='first',inplace=True)
 dataframe.nunique()
 # 删除重复值，结果一样数据无重复有效数据
@@ -164,7 +164,7 @@ dataframe.drop_duplicates(subset=['userid','itemid','type','timestamp'],keep='fi
 dataframe.nunique()
 </code></pre>
 <figure data-type="image" tabindex="5"><img src="https://Angie-DA.github.io/post-images/1647259101211.jpg" alt="" loading="lazy"></figure>
-<pre><code># 将时间戳转为日期，从原数据的int64转化为日期类型
+<pre><code class="language-python"># 将时间戳转为日期，从原数据的int64转化为日期类型
 import datetime
 
 # to_datetime的默认时区不是中国需要改成北京时间+8h
@@ -189,19 +189,19 @@ dataframe['hour']=dataframe.time.dt.hour
 dataframe.drop('timestamp',inplace=True, axis=1)
 </code></pre>
 <figure data-type="image" tabindex="6"><img src="https://Angie-DA.github.io/post-images/1647259162215.jpg" alt="" loading="lazy"></figure>
-<pre><code>dataframe.head()
+<pre><code class="language-python">dataframe.head()
 </code></pre>
 <figure data-type="image" tabindex="7"><img src="https://Angie-DA.github.io/post-images/1647259219889.png" alt="" loading="lazy"></figure>
-<pre><code># 描述性统计数据，科学计数法表示
+<pre><code class="language-python"># 描述性统计数据，科学计数法表示
 dataframe.describe()
 </code></pre>
 <figure data-type="image" tabindex="8"><img src="https://Angie-DA.github.io/post-images/1647259281575.jpg" alt="" loading="lazy"></figure>
 <h4 id="24-数据清洗结果">2.4  数据清洗结果</h4>
-<pre><code>print('数据清洗后共有{}行记录，{}列字段，字段分别为{}'.format(dataframe.shape[0],dataframe.shape[1],dataframe.columns.tolist()))
+<pre><code class="language-python">print('数据清洗后共有{}行记录，{}列字段，字段分别为{}'.format(dataframe.shape[0],dataframe.shape[1],dataframe.columns.tolist()))
 </code></pre>
 <figure data-type="image" tabindex="9"><img src="https://Angie-DA.github.io/post-images/1647259350839.png" alt="" loading="lazy"></figure>
 <h3 id="3-数据分析">3  数据分析</h3>
-<pre><code># 有效时间内总用户数量，有操作的商品数量及类目
+<pre><code class="language-python"># 有效时间内总用户数量，有操作的商品数量及类目
 #     独立访客数UV
 total_unique_users = dataframe.userid.nunique()
 #     有操作的商品
@@ -214,26 +214,26 @@ user_bought_count = dataframe[dataframe['type']=='buy'].userid.nunique()
 user_nobought_count = total_unique_users - user_bought_count
 </code></pre>
 <h4 id="31-输出当前数据各栏目计数">3.1  输出当前数据各栏目计数</h4>
-<pre><code>total={'UV':[total_unique_users],'商品数':[total_unique_itemid],'类目数':[total_unique_categoryid],'付费用户数':[user_bought_count],'非付费用户数':[user_nobought_count]}
+<pre><code class="language-python">total={'UV':[total_unique_users],'商品数':[total_unique_itemid],'类目数':[total_unique_categoryid],'付费用户数':[user_bought_count],'非付费用户数':[user_nobought_count]}
 totalnew= pd.DataFrame(total,index = [''])
 totalnew
 </code></pre>
 <figure data-type="image" tabindex="10"><img src="https://Angie-DA.github.io/post-images/1647259497916.jpg" alt="" loading="lazy"></figure>
 <h4 id="32-用户复购率">3.2  用户复购率</h4>
 <p>用户复购率=购买2次及以上用户数/总购买用户数</p>
-<pre><code>groupby_userid = dataframe.groupby('userid')
+<pre><code class="language-python">groupby_userid = dataframe.groupby('userid')
 user_type = groupby_userid.type.value_counts().unstack()  # 使用unstack进行不堆叠操作，列方向上的索引转成行方向的索引
 user_type.tail()
 </code></pre>
 <figure data-type="image" tabindex="11"><img src="https://Angie-DA.github.io/post-images/1647259564096.png" alt="" loading="lazy"></figure>
 <h4 id="33-可视化图表">3.3  可视化图表</h4>
-<pre><code># 提取数据
+<pre><code class="language-python"># 提取数据
 type_series = dataframe.type.value_counts()
 # 提取数据
 type_series = dataframe.type.value_counts()
 </code></pre>
 <h5 id="331-饼图-用户行为占比">3.3.1  饼图-用户行为占比</h5>
-<pre><code>plt.figure(figsize = (5,5), dpi = 100)
+<pre><code class="language-python">plt.figure(figsize = (5,5), dpi = 100)
 plt.pie(type_series,
         labels=type_series.index,
         autopct='%1.2f%%', 
@@ -246,7 +246,7 @@ plt.show()
 </code></pre>
 <figure data-type="image" tabindex="12"><img src="https://Angie-DA.github.io/post-images/1647259705489.png" alt="" loading="lazy"></figure>
 <h5 id="332-动态曲线-每日pv-uv">3.3.2  动态曲线-每日pv、uv</h5>
-<pre><code>#提取数据
+<pre><code class="language-python">#提取数据
 pv_day = dataframe[dataframe.type =='pv'].groupby('date')['type'].count()
 uv_day = dataframe[dataframe.type =='pv'].drop_duplicates(['userid','date']).groupby('date')['userid'].count()
 #转换成图表所需的格式
@@ -257,7 +257,7 @@ pv = np.around(pv_day.values/10000,decimals=2)
 # uv = np.around(uv_day.values,decimals=2)
 uv=uv_day
 </code></pre>
-<pre><code># 制作曲线图表
+<pre><code class="language-python"># 制作曲线图表
 x=list(date)
 y1=pv
 y2=uv
@@ -299,7 +299,7 @@ pvuv_day_line.render_notebook() #展示图表
 第二层：仅浏览就付费行为（buy）</p>
 <p>目的：分析用户行为的转化率<br>
 用户各行为数据计算方式</p>
-<pre><code># 有效日期9天内各个行为的操作总数，每日平均操作数，每日平均操作用户数记录
+<pre><code class="language-python"># 有效日期9天内各个行为的操作总数，每日平均操作数，每日平均操作用户数记录
 type_df=pd.DataFrame([type_series,type_series/9,type_series/total_unique_users],
                      index=['total','avg_day','avg_user'])
 
@@ -315,13 +315,13 @@ type_df.loc['paying_user']=dataframe[dataframe['userid'].isin(dataframe[datafram
 type_df
 </code></pre>
 <figure data-type="image" tabindex="14"><img src="https://Angie-DA.github.io/post-images/1647260066907.png" alt="" loading="lazy"></figure>
-<pre><code># 提取type用户行为列中的每一个行为数据
+<pre><code class="language-python"># 提取type用户行为列中的每一个行为数据
 pv_df = dataframe[dataframe['type']=='pv']
 buy_df = dataframe[dataframe['type']=='buy']
 cart_df = dataframe[dataframe['type']=='cart']
 fav_df = dataframe[dataframe['type']=='fav']
 </code></pre>
-<pre><code># 方式1 点击-&gt;加购-&gt;购买
+<pre><code class="language-python"># 方式1 点击-&gt;加购-&gt;购买
 pv_cart_df = pd.merge(left=pv_df,right=cart_df,how='inner',on=['userid','itemid','categoryid'],suffixes=('_pv','_cart'))
 cart_buy_df = pd.merge(left=cart_df,right=buy_df,how='inner',on=['userid','itemid','categoryid'],suffixes=('_cart','_buy'))
 count_users_pv_cart = pv_cart_df[pv_cart_df.time_pv &lt; pv_cart_df.time_cart].userid.nunique()
@@ -345,7 +345,7 @@ print(count_user_fav_buy)
 print(count_user_pv_buy)
 </code></pre>
 <figure data-type="image" tabindex="15"><img src="https://Angie-DA.github.io/post-images/1647260155147.png" alt="" loading="lazy"></figure>
-<pre><code>fav_cart_ratio = (count_user_pv_fav+count_users_pv_cart)/total_unique_users
+<pre><code class="language-python">fav_cart_ratio = (count_user_pv_fav+count_users_pv_cart)/total_unique_users
 buy_beh_ratio=(count_user_fav_buy+count_users_cart_buy)/total_unique_users
 buy_ratio = count_user_pv_buy /total_unique_users
 
@@ -358,7 +358,7 @@ print('收藏加购-&gt;购买用户转化率为:%.2f%%'%(buy_beh_ratio*100))
 print('浏览直接购买用户转化率为:%.2f%%'%(buy_ratio*100))
 </code></pre>
 <figure data-type="image" tabindex="16"><img src="https://Angie-DA.github.io/post-images/1647260215309.jpg" alt="" loading="lazy"></figure>
-<pre><code>from pyecharts.charts import Funnel
+<pre><code class="language-python">from pyecharts.charts import Funnel
 # 漏斗图datapair
 process_data_pair = [(&quot;点击量&quot;, total_unique_users), 
                      (&quot;收藏加购量&quot;, count_user_pv_fav+count_users_pv_cart),
@@ -374,7 +374,7 @@ process_data_pair = [(&quot;点击量&quot;, total_unique_users),
 ).render_notebook() 
 </code></pre>
 <figure data-type="image" tabindex="17"><img src="https://Angie-DA.github.io/post-images/1647260619777.png" alt="" loading="lazy"></figure>
-<pre><code>process_data_pair = [(&quot;点击量&quot;, total_unique_users), 
+<pre><code class="language-python">process_data_pair = [(&quot;点击量&quot;, total_unique_users), 
                      (&quot;购买量&quot;, count_user_pv_buy)]
 (
     Funnel(init_opts=opts.InitOpts(width='500px', height='400px'))
@@ -388,7 +388,7 @@ process_data_pair = [(&quot;点击量&quot;, total_unique_users),
 </code></pre>
 <figure data-type="image" tabindex="18"><img src="https://Angie-DA.github.io/post-images/1647260670272.png" alt="" loading="lazy"></figure>
 <h4 id="334-柱状图-用户复购率">3.3.4  柱状图-用户复购率</h4>
-<pre><code>repurchase_users = user_type[user_type['buy']&gt;=2].shape[0]  # 购买记录超过1次的用户数
+<pre><code class="language-python">repurchase_users = user_type[user_type['buy']&gt;=2].shape[0]  # 购买记录超过1次的用户数
 repurchase_rate = repurchase_users/user_bought_count
 print(&quot;复购率:{:.2f}%&quot;.format(repurchase_rate*100))
 ​
@@ -401,11 +401,11 @@ plt.show()
 <p>个人思考：在淘宝下沉扩展获取新用户的同时，促进老用户复购次数增加，进一步稳定提高复购率应是更重要的。</p>
 <h4 id="335-动态柱状-用户量变化趋势">3.3.5  动态柱状-用户量变化趋势</h4>
 <p>每日的活跃用户量基本在71%左右，而成交客户基本维持在20%</p>
-<pre><code>behavior_types=list(dict(dataframe['type'].value_counts()).keys())
+<pre><code class="language-python">behavior_types=list(dict(dataframe['type'].value_counts()).keys())
 behavior_types
 </code></pre>
 <figure data-type="image" tabindex="19"><img src="https://Angie-DA.github.io/post-images/1647261005523.png" alt="" loading="lazy"></figure>
-<pre><code>groupby_date = dataframe.groupby(by=dataframe.date)                               # 根据日期分组
+<pre><code class="language-python">groupby_date = dataframe.groupby(by=dataframe.date)                               # 根据日期分组
 dates = sorted(list(dict(dataframe['date'].value_counts()).keys()))
 dates_df = pd.DataFrame(data=None, index=dates, columns=behavior_types)           # 创建按日期分组的数据框
 
@@ -417,7 +417,7 @@ dates_df['weekday'] = [datetime.datetime.isoweekday(datetime.date(x.year,x.month
 dates_df
 </code></pre>
 <figure data-type="image" tabindex="20"><img src="https://Angie-DA.github.io/post-images/1647261070470.png" alt="" loading="lazy"></figure>
-<pre><code>dates_df['uv'] = [groupby_date.get_group(d).userid.nunique() for d in dates]  # 每日独立访客量
+<pre><code class="language-python">dates_df['uv'] = [groupby_date.get_group(d).userid.nunique() for d in dates]  # 每日独立访客量
 # 自定义当天使用淘宝app进行5次操作（任何行为）的用户就是活跃用户
 active_user_standard = 3                   # 自定义活跃用户操作次数
 dates_df['dau'] = [(groupby_date.get_group(d).groupby(by='userid').size()&gt;active_user_standard).value_counts()[True] for d in dates]
@@ -433,7 +433,7 @@ dates_df['ARPPU'] = dates_df['buy']/dates_df['buyer']
 dates_df
 </code></pre>
 <figure data-type="image" tabindex="21"><img src="https://Angie-DA.github.io/post-images/1647261251533.png" alt="" loading="lazy"></figure>
-<pre><code>(
+<pre><code class="language-python">(
     Line(init_opts=opts.InitOpts(width=&quot;800px&quot;, height=&quot;500px&quot;))
     .add_xaxis(xaxis_data=dates_df.index)
     .add_yaxis(&quot;uv&quot;, y_axis=dates_df['uv'],is_symbol_show=False)
@@ -454,7 +454,7 @@ dates_df
 F（Frequency）：客户在最近一段时间内交易的次数。<br>
 M（Monetary）：客户在最近一段时间内交易的金额。<br>
 本次分析数据集不含金额，仅从R、F两个维度进行分析</p>
-<pre><code>groupby_buy_userid = dataframe[dataframe['type']=='buy'].groupby(by='userid')
+<pre><code class="language-python">groupby_buy_userid = dataframe[dataframe['type']=='buy'].groupby(by='userid')
 RF = pd.DataFrame(index=groupby_buy_userid.groups.keys(), columns=['R', 'F'])
 
 RF['F'] = groupby_buy_userid.type.count()
@@ -462,7 +462,7 @@ RF['last_buy_time'] = groupby_buy_userid.time.max()
 # 假设获取数据集的第二天进行分析，所以选择2017/12/04为对照日期，保留天数
 RF['R'] = (pd.to_datetime('2017-12-04')-RF['last_buy_time']).dt.days
 </code></pre>
-<pre><code># 最近的一次交易记录距离2017/12/04为0天
+<pre><code class="language-python"># 最近的一次交易记录距离2017/12/04为0天
 # 即12/03购买相差还不到一天，最远的为9天，平均为2.53天
 # R划分4个区域 0-1,2-3,4-6,7-9,分别得分4，3，2，1
 
@@ -474,7 +474,7 @@ RF['R'] = (pd.to_datetime('2017-12-04')-RF['last_buy_time']).dt.days
 RF[['R','F']].describe()
 </code></pre>
 <figure data-type="image" tabindex="23"><img src="https://Angie-DA.github.io/post-images/1647261461955.png" alt="" loading="lazy"></figure>
-<pre><code>def R_score(x):
+<pre><code class="language-python">def R_score(x):
     if 0 &lt;= x &lt;= 1:
         return 4
     elif 2 &lt;= x &lt;= 3:
@@ -500,10 +500,10 @@ def F_score(x):
 RF['R_score'] = RF.R.map(R_score)
 RF['F_score'] = RF.F.map(F_score)
 </code></pre>
-<pre><code>RF['R&gt;mean?']=(RF['R_score']&gt;RF['R_score'].mean())*1
+<pre><code class="language-python">RF['R&gt;mean?']=(RF['R_score']&gt;RF['R_score'].mean())*1
 RF['F&gt;mean?']=(RF['F_score']&gt;RF['F_score'].mean())*1
 </code></pre>
-<pre><code>def user_classfication(tup):
+<pre><code class="language-python">def user_classfication(tup):
     R_score, F_score = tup
     if R_score == 0 and F_score == 1:
         return &quot;重要保持客户&quot;
@@ -520,10 +520,11 @@ RF.head()
 </code></pre>
 <figure data-type="image" tabindex="24"><img src="https://Angie-DA.github.io/post-images/1647261569155.png" alt="" loading="lazy"></figure>
 <h3 id="统计用户分类情况">统计用户分类情况</h3>
-<p>RF.user_classification.value_counts()<br>
-<img src="https://Angie-DA.github.io/post-images/1647261636686.png" alt="" loading="lazy"></p>
-<pre><code># 用户分类占比
-RF.user_classification.value_counts(1)
+<pre><code class="language-python">RF.user_classification.value_counts()
+</code></pre>
+<figure data-type="image" tabindex="25"><img src="https://Angie-DA.github.io/post-images/1647261636686.png" alt="" loading="lazy"></figure>
+<h1 id="用户分类占比">用户分类占比</h1>
+<pre><code class="language-python">RF.user_classification.value_counts(1)
 </code></pre>
 <p><img src="https://Angie-DA.github.io/post-images/1647261783312.jpg" alt="" loading="lazy"><br>
 个人思考：根据RFM模型对用户分类后发现重要挽留客户比例最高，其次是重要价值用户，淘宝仅需要适当营销并推出一系列的活动就能稳固部分重要挽留客户，同时，需要提高社群管理的效率，将重要保持客户和重要发展客户转变为重要价值客户，可采取定期发送文案、赠送优惠券等方式。</p>
@@ -572,6 +573,7 @@ RF.user_classification.value_counts(1)
 </li>
 </ul>
 </li>
+<li><a href="#%E7%94%A8%E6%88%B7%E5%88%86%E7%B1%BB%E5%8D%A0%E6%AF%94">用户分类占比</a></li>
 </ul>
 
               </div>
